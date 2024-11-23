@@ -1,0 +1,1 @@
+export const getAllProducts = `${process.env.BASE_URL}/products`
