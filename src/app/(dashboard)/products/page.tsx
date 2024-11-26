@@ -1,43 +1,12 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { File, PlusCircle } from 'lucide-react';
-import { Button } from '@/components/common/button';
-import { ProductsTable } from '@/components/products/productsTable'; 
-import { getProducts } from '@/services/products';
-
+import { Tabs } from '@/components/ui/tabs';
+import TableHeaderSection from '@/templates/products-page/table-header-section/indes';
+import TableBodySection from "@/templates/products-page/table-body-section";
 export default async function ProductsPage() {
-  const products = await getProducts();
 
   return (
     <Tabs defaultValue="all">
-      <div className="flex items-center">
-        <TabsList>
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="active">Active</TabsTrigger>
-          <TabsTrigger value="draft">Draft</TabsTrigger>
-          <TabsTrigger value="archived" className="hidden sm:flex">
-            Archived
-          </TabsTrigger>
-        </TabsList>
-        <div className="ml-auto flex items-center gap-2">
-          <Button size="sm" variant="outline" className="h-8 gap-1">
-            <File className="h-3.5 w-3.5" />
-            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Export
-            </span>
-          </Button>
-          <Button size="sm" className="h-8 gap-1">
-            <PlusCircle className="h-3.5 w-3.5" />
-            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Add Product
-            </span>
-          </Button>
-        </div>
-      </div>
-      <TabsContent value="all">
-        <ProductsTable
-          products={products}
-        />
-      </TabsContent>
+      <TableHeaderSection/>
+      <TableBodySection />
     </Tabs>
   );
 }

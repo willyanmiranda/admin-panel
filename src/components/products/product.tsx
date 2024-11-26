@@ -11,6 +11,7 @@ import {
 import { MoreHorizontal } from 'lucide-react';
 import { TableCell, TableRow } from '@/components/ui/table';
 import { deleteProduct } from '@/services/products';
+import { convertDate } from '@/lib/utils';
 import { ProductType } from '@/types/product';
 
 export function Product({ product }: { product: ProductType }) {
@@ -28,13 +29,13 @@ export function Product({ product }: { product: ProductType }) {
       <TableCell className="font-medium">{product.title}</TableCell>
       <TableCell>
         <Badge variant="outline" className="capitalize">
-          ok
+          Ativo
         </Badge>
       </TableCell>
-      <TableCell className="hidden md:table-cell">{`$${product.price}`}</TableCell>
+      <TableCell className="hidden md:table-cell">{`R$${product.price}`}</TableCell>
       <TableCell className="hidden md:table-cell">{product.inStock}</TableCell>
       <TableCell className="hidden md:table-cell">
-        {product.createdAt}
+        {convertDate(product.createdAt)}
       </TableCell>
       <TableCell>
         <DropdownMenu>
@@ -45,11 +46,11 @@ export function Product({ product }: { product: ProductType }) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem>Edit</DropdownMenuItem>
+            <DropdownMenuLabel>Ações</DropdownMenuLabel>
+            <DropdownMenuItem>Editar</DropdownMenuItem>
             <DropdownMenuItem>
               <form action={deleteProduct}>
-                <button type="submit">Delete</button>
+                <button type="submit">Excluir</button>
               </form>
             </DropdownMenuItem>
           </DropdownMenuContent>

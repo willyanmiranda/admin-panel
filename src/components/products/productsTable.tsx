@@ -38,9 +38,9 @@ export function ProductsTable({ products }: { products: ProductType[] }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Products</CardTitle>
+        <CardTitle>Produtos</CardTitle>
         <CardDescription>
-          Manage your products and view their sales performance.
+          Gerencie seus produtos
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -50,13 +50,13 @@ export function ProductsTable({ products }: { products: ProductType[] }) {
               <TableHead className="hidden w-[100px] sm:table-cell">
                 <span className="sr-only">Image</span>
               </TableHead>
-              <TableHead>Name</TableHead>
+              <TableHead>Nome</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="hidden md:table-cell">Price</TableHead>
+              <TableHead className="hidden md:table-cell">Preço</TableHead>
               <TableHead className="hidden md:table-cell">
-                Total Sales
+                Total de vendas
               </TableHead>
-              <TableHead className="hidden md:table-cell">Created at</TableHead>
+              <TableHead className="hidden md:table-cell">Data de criação</TableHead>
               <TableHead>
                 <span className="sr-only">Actions</span>
               </TableHead>
@@ -87,7 +87,7 @@ export function ProductsTable({ products }: { products: ProductType[] }) {
               disabled={offset === productsPerPage}
             >
               <ChevronLeft className="mr-2 h-4 w-4" />
-              Prev
+              Anterior
             </Button>
             <Button
               formAction={nextPage}
@@ -96,7 +96,7 @@ export function ProductsTable({ products }: { products: ProductType[] }) {
               type="submit"
               disabled={offset + productsPerPage > totalProducts}
             >
-              Next
+              Próximo
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
