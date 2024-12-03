@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Options from "./options";
 import { useDispatch } from "react-redux";
 import { addOption, removeOption } from "@/store/product/optionSlice";
+import VariantsTable from "./variantsTable";
 
 interface Option {
   id: number; 
@@ -87,6 +88,7 @@ const Variants = () => {
               />
             ))}
           </ul>
+          { optionsList.length > 0 && <VariantsTable /> } 
         </>
       )}
     </>

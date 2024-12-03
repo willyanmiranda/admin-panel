@@ -2,12 +2,6 @@ interface Category {
     name: string;
 }
 
-export interface OptionState {
-    id: number,
-    title: string,
-    values: string[]
-}
-
 export interface ProductState {
     title: string;
     subtitle: string;
@@ -32,4 +26,17 @@ export interface ProductType {
     updatedAt: string;
     categoryId: string;
     Category: Category;
+}
+
+export interface Variant {
+    id: number;
+    price: number;
+    combination: string[];
+    active: boolean;
+}
+
+export interface OptionState {
+    id: number,
+    title: string,
+    values: string[]
 }

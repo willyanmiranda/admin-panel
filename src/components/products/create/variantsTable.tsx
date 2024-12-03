@@ -1,68 +1,59 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { generateVariants } from "@/lib/utils";
+import VariantsCombination from "./variantsCombination";
+import { updatePrice, setVariants } from "@/store/product/variantSlice";
 
-interface Option {
-  title: string;
-  values: string[];
-}
+const VariantsTable = () => {
+  const options = useSelector((state: RootState) => state.options.options);
+  const basePrice = useSelector((state: RootState) => state.product.price);
+  const variants = useSelector((state: RootState) => state.variants.variants)
 
-const VariantsTable = ({ options }: { options: Option[] }) => {
-  const [variants, setVariants] = useState<string[][]>([]);
-
-  const generateCombinations = (options: Option[]) => {
-    if (options.length === 0) return [];
-
-    const [first, ...rest] = options;
-    const restCombinations = generateCombinations(rest);
-
-    if (restCombinations.length === 0) {
-      return first.values.map((value) => [value]);
-    }
-
-    return first.values.flatMap((value) =>
-      restCombinations.map((combination) => [value, ...combination])
-    );
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const combinations = generateCombinations(options);
-    setVariants(combinations);
+    dispatch(setVariants(generateVariants(options, basePrice)));
   }, [options]);
 
   return (
-    <div className="mt-4">
-      <h3 className="font-medium text-lg mb-2">Product variants</h3>
-      <p className="text-sm text-gray-500 mb-4">
-        This ranking will affect the variants' order in your storefront.
-      </p>
-      <table className="min-w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2">Select</th>
-            {options.map((option, index) => (
-              <th key={index} className="border border-gray-300 px-4 py-2">
-                {option.title}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {variants.map((variant, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                <input type="checkbox" defaultChecked />
-              </td>
-              {variant.map((value, i) => (
-                <td key={i} className="border border-gray-300 px-4 py-2">
-                  {value}
-                </td>
+    <>
+      {variants.length > 0 &&
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-x-1">
+              <label className="text-[13px] font-medium text-black">
+                Product variants
+              </label>
+            </div>
+            <span className="text-[13px] font-normal">
+              This ranking will affect the variants' order in your storefront.
+            </span>
+          </div>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>
+                  Status
+                </TableHead>
+                {options.map(option => (
+                  <TableHead>{option.title}</TableHead>
+                ))}
+                <TableHead>Preço</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {variants.map(variant => (
+                <VariantsCombination variant={variant} />
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+            </TableBody>
+          </Table>
+        </div>
+      }
+    </>
   );
 };
 
