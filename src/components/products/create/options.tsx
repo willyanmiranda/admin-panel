@@ -43,7 +43,7 @@ const Options = ({ id, onRemove }: OptionsProps) => {
     <li className="bg-gray-100/50 border-gray-300 rounded-lg border border-solid grid grid-cols-[1fr_28px] items-center gap-2 p-1.5">
       <div className="grid grid-cols-[min-content,1fr] items-center gap-1.5">
         <div className="flex items-center px-2 py-1.5">
-          <label className="text-[12px] text-black font-medium">Title</label>
+          <label className="text-[12px] text-black font-medium">Título</label>
         </div>
         <div className="relative">
           <input
@@ -55,7 +55,7 @@ const Options = ({ id, onRemove }: OptionsProps) => {
           />
         </div>
         <div className="flex items-center px-2 py-1.5">
-          <label className="text-[12px] text-black font-medium">Values</label>
+          <label className="text-[12px] text-black font-medium">Opções</label>
         </div>
         <div className="border-gray-300 items-center gap-1 bg-white flex rounded-md border border-solid text-[13px] h-8 px-1.5 w-full">
           {tags.map((tag, index) => (

@@ -26,11 +26,11 @@ const VariantsTable = () => {
           <div className="flex flex-col">
             <div className="flex items-center gap-x-1">
               <label className="text-[13px] font-medium text-black">
-                Product variants
+                Variantes
               </label>
             </div>
             <span className="text-[13px] font-normal">
-              This ranking will affect the variants' order in your storefront.
+              Essa classificação afetará a ordem das variantes na sua loja.
             </span>
           </div>
           <Table>

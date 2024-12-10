@@ -7,7 +7,8 @@ import {
     Package,
     Settings,
     ShoppingCart,
-    Users2
+    Users2,
+    SquareMenu
 } from 'lucide-react';
 
 const DesktopNav = () => {
@@ -31,6 +32,10 @@ const DesktopNav = () => {
 
         <NavItem href="/products" label="Products">
           <Package className="h-5 w-5" />
+        </NavItem>
+
+        <NavItem href="/categories" label="Categories">
+          <SquareMenu className="h-5 w-5" />
         </NavItem>
 
         <NavItem href="/customers" label="Customers">
