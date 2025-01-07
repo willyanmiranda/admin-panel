@@ -28,7 +28,7 @@ export function Product({ product }: { product: ProductType }) {
       </TableCell>
       <TableCell className="font-medium">{product.title}</TableCell>
       <TableCell>
-        <Badge variant="outline" className="capitalize">
+        <Badge variant="outline" className="capitalize bg-green-100 border-green-500 text-green-600">
           Ativo
         </Badge>
       </TableCell>
@@ -48,7 +48,7 @@ export function Product({ product }: { product: ProductType }) {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem>Editar</DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem className="text-red-600">
               <form action={deleteProduct}>
                 <button type="submit">Excluir</button>
               </form>
