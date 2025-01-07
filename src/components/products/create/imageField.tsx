@@ -1,15 +1,12 @@
 "use client";
 import { Button } from "@/components/common/button";
+import Image from "next/image";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdownMenu";
 import { MoreHorizontal, Upload, Images } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setMainImage } from "@/store/product/productSlice";
-
-interface FileData {
-    url: string;
-    name: string;
-}
+import { setMainImage, setImages } from "@/store/product/productSlice";
+import { FileData } from "@/types/product";
 
 const ImageField = () => {
     const [files, setFiles] = useState<FileData[]>([]);
@@ -56,6 +53,10 @@ const ImageField = () => {
         dispatch(setMainImage(thumb))
     }, [thumb])
 
+    useEffect(() => {
+        dispatch(setImages(files))
+    }, [files])
+
     return (
         <>
             <button
@@ -73,9 +74,9 @@ const ImageField = () => {
             >
                 <div className="flex items-center gap-x-2">
                     <Upload className="w-4 h-4" />
-                    <p className="font-normal text-[13px]">Upload</p>
+                    <p className="font-normal text-sm">Upload</p>
                 </div>
-                <p className="text-[13px] font-normal">
+                <p className="text-sm font-normal">
                     Arraste ou clique para fazer upload
                 </p>
             </button>
@@ -96,10 +97,14 @@ const ImageField = () => {
                         >
                             <div className="flex items-center gap-x-3">
                                 <div className="bg-ui-bg-base h-10 w-[40px] overflow-hidden rounded-md">
-                                    <img src={file.url} alt={file.name} className="size-full object-cover object-center" />
+                                    <Image
+                                        alt={file.name}
+                                        className="size-full object-cover object-center"
+                                        src={file.url}
+                                    />
                                 </div>
                                 <div className="flex gap-2">
-                                    <p className="font-normal font-sans text-[13px]">{file.name}</p>
+                                    <p className="font-normal font-sans text-sm">{file.name}</p>
                                     {file.url === thumb && <Images className="w-5 h-5" />}
                                 </div>
                             </div>

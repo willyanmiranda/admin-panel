@@ -1,7 +1,7 @@
-import ProductForm from "@/components/products/create/form";
+import ProductFormSection from "@/templates/products-create-page/form-section";
 
 export default function CreateProductsPage() {
     return (
-        <ProductForm/>
+        <ProductFormSection/>
     )
 }

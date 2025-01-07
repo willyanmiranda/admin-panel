@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductState } from "@/types/product";
+import { ProductState, FileData } from "@/types/product";
 
 const initialState: ProductState = {
     title: "",
@@ -9,6 +9,7 @@ const initialState: ProductState = {
     mainImage: "",
     manufacturer: "",
     categoryId: "",
+    images: []
 };
 
 const productSlice = createSlice({
@@ -36,9 +37,12 @@ const productSlice = createSlice({
         setCategoryId(state, action: PayloadAction<string>) {
             state.categoryId = action.payload;
         },
+        setImages(state, action: PayloadAction<FileData[]>) {
+            state.images = action.payload;
+        },
     },
 });
 
 export const productReducer = productSlice.reducer;
 
-export const { setTitle, setSubtitle, setDescription, setPrice, setMainImage, setManufacturer, setCategoryId } = productSlice.actions;
+export const { setTitle, setSubtitle, setDescription, setPrice, setMainImage, setManufacturer, setCategoryId, setImages } = productSlice.actions;

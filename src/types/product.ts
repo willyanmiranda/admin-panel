@@ -10,6 +10,7 @@ export interface ProductState {
     mainImage: string;
     manufacturer: string;
     categoryId: string;
+    images: FileData[]
 }
 
 export interface ProductType {
@@ -39,4 +40,9 @@ export interface OptionState {
     id: number,
     title: string,
     values: string[]
+}
+
+export interface FileData {
+    url: string;
+    name: string;
 }

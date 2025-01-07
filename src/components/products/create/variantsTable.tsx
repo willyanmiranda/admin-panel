@@ -25,11 +25,11 @@ const VariantsTable = () => {
         <div className="flex flex-col gap-6">
           <div className="flex flex-col">
             <div className="flex items-center gap-x-1">
-              <label className="text-[13px] font-medium text-black">
+              <label className="text-sm font-medium text-black">
                 Variantes
               </label>
             </div>
-            <span className="text-[13px] font-normal">
+            <span className="text-sm font-normal">
               Essa classificação afetará a ordem das variantes na sua loja.
             </span>
           </div>

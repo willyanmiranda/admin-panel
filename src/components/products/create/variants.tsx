@@ -37,7 +37,7 @@ const Variants = () => {
     <>
       <Form.Field className="grid" name="variants">
         <div className="flex items-baseline justify-between">
-          <Form.Label className="text-[13px] font-medium leading-[35px] text-black">
+          <Form.Label className="text-sm font-medium leading-[35px] text-black">
             Variantes
           </Form.Label>
         </div>
@@ -54,7 +54,7 @@ const Variants = () => {
                 Sim, esse produto possui variantes
               </span>
             </label>
-            <p className="font-normal text-[13px] txt-compact-small text-ui-fg-muted group-disabled:text-ui-fg-disabled">
+            <p className="font-normal text-sm txt-compact-small text-ui-fg-muted group-disabled:text-ui-fg-disabled">
               Caso esteja desmarcado, criaremos uma variante padrão para você.
             </p>
           </div>
@@ -66,11 +66,11 @@ const Variants = () => {
             <div className="flex items-start justify-between gap-x-4">
               <div className="flex flex-col">
                 <div className="flex items-center gap-x-1">
-                  <label className="text-[13px] font-medium text-black">
+                  <label className="text-sm font-medium text-black">
                     Opções
                   </label>
                 </div>
-                <span className="text-[13px] font-normal">
+                <span className="text-sm font-normal">
                   Defina as opções para os produtos, ex. cor, tamanho, etc...
                 </span>
               </div>

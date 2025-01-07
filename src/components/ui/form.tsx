@@ -24,11 +24,11 @@ export const FormField = ({
   }) => (
     <Form.Field className="grid" name={name}>
       <div className="flex items-baseline justify-between">
-        <Form.Label className="text-[13px] font-medium leading-[35px] text-black">
+        <Form.Label className="text-sm font-medium leading-[35px] text-black">
           {label}
         </Form.Label>
         {message && (
-          <Form.Message className="text-[13px] text-white opacity-80" match="valueMissing">
+          <Form.Message className="text-sm text-white opacity-80" match="valueMissing">
             {message}
           </Form.Message>
         )}
@@ -38,7 +38,7 @@ export const FormField = ({
       ) : (
         <Form.Control asChild>
           <input
-            className="w-full text-[13px] bg-gray-100/50 rounded-md border-solid border border-gray-300 h-8 px-2"
+            className="w-full text-sm bg-gray-100/50 rounded-md border-solid border border-gray-300 h-8 px-2"
             type={type}
             placeholder={placeholder}
             required={required}

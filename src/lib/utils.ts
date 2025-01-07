@@ -35,3 +35,19 @@ export const generateVariants = (options: OptionState[], basePrice: number): Var
     active: true,
   }));
 };
+
+export const convertBlobToBase64 = (blobUrl: string) => {
+  return new Promise((resolve, reject) => {
+    fetch(blobUrl)
+      .then(response => response.blob())
+      .then(blob => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          resolve(reader.result);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      })
+      .catch(reject);
+  });
+}

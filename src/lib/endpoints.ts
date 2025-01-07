@@ -1,1 +1,3 @@
-export const getAllProducts = `${process.env.BASE_URL}/products`
+export const getAllProducts = `https://node.rifashow.shop/api/products`;
+
+export const createImage = `https://node.rifashow.shop/api/images`
